@@ -85,6 +85,24 @@ export const cards: Record<string, CardData> = {
       log('플레이어가 위큰으로 적의 공격력을 25% 감소시켰습니다!');
     },
   },
+  explosiveTrap: {
+    id: 'explosiveTrap',
+    name: '폭발 트랩',
+    description: '3턴 후 적에게 15 피해를 줍니다.',
+    tags: ['trap', 'delay'],
+    cost: 1,
+    effect: ({ applyStatus, log }) => {
+      const trap: StatusEffect = {
+        id: 'explosiveTrap',
+        name: '폭발 트랩',
+        duration: 3,
+        value: 15,
+        description: '3턴 후 15 데미지'
+      };
+      applyStatus('enemy', trap);
+      log('플레이어가 폭발 트랩을 설치했습니다! (3턴 후 15 데미지)');
+    },
+  },
 };
 
 export const getCardList = (): CardData[] => Object.values(cards);
