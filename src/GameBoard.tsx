@@ -393,13 +393,18 @@ const GameBoard: React.FC = () => {
   };
 
   return (
-    <div className="min-h-screen bg-gradient-to-b from-gray-900 to-gray-800 flex flex-col items-center p-2">
-      <div className="w-full max-w-md mt-4">
-        <EnemyStatus hp={enemyHP} maxHp={INIT_ENEMY_HP} />
-      </div>
-      <div className="w-full max-w-md my-2">
+    <div className="min-h-screen bg-gradient-to-b from-gray-900 to-gray-800 flex flex-col items-center p-2 relative">
+      {/* 오른쪽 고정 로그 */}
+      <div className="fixed top-8 right-4 w-64 z-50">
         <GameLog log={log} turn={turn} />
       </div>
+      {/* 중앙 상단 적(슬라임) 영역 */}
+      <div className="w-full flex flex-col items-center mt-8 mb-2">
+        <div className="w-full max-w-lg">
+          <EnemyStatus hp={enemyHP} maxHp={INIT_ENEMY_HP} />
+        </div>
+      </div>
+      {/* 나머지 UI */}
       <div className="w-full max-w-md flex flex-col gap-2 mt-auto mb-4">
         <PlayerStatus hp={playerHP} maxHp={INIT_PLAYER_HP} block={playerBlock} energy={playerEnergy} />
         <div className="flex justify-center gap-4 mt-2">

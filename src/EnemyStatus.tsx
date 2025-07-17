@@ -19,6 +19,20 @@ function EnemyStatus({ hp, maxHp }: EnemyStatusProps) {
           {hp} / {maxHp}
         </span>
       </div>
+      {/* 픽셀 스타일 슬라임 SVG */}
+      <div className="mt-2">
+        <svg width="64" height="48" viewBox="0 0 32 24" shapeRendering="crispEdges">
+          {/* 몸통 */}
+          <rect x="4" y="12" width="24" height="8" fill="#6ee7b7" />
+          <rect x="6" y="10" width="20" height="2" fill="#34d399" />
+          <rect x="8" y="8" width="16" height="2" fill="#059669" />
+          {/* 눈 */}
+          <rect x="11" y="16" width="2" height="2" fill="#222" />
+          <rect x="19" y="16" width="2" height="2" fill="#222" />
+          {/* 입 */}
+          <rect x="14" y="18" width="4" height="1" fill="#222" />
+        </svg>
+      </div>
     </div>
   );
 }
