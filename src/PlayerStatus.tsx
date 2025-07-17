@@ -4,9 +4,10 @@ type PlayerStatusProps = {
   hp: number;
   maxHp: number;
   block: number;
+  energy: number;
 };
 
-function PlayerStatus({ hp, maxHp, block }: PlayerStatusProps) {
+function PlayerStatus({ hp, maxHp, block, energy }: PlayerStatusProps) {
   const percent = Math.max(0, (hp / maxHp) * 100);
   return (
     <div className="bg-gray-800 rounded-lg shadow p-4 flex flex-col items-center">
@@ -20,9 +21,15 @@ function PlayerStatus({ hp, maxHp, block }: PlayerStatusProps) {
           {hp} / {maxHp}
         </span>
       </div>
-      <div className="flex items-center gap-2 mt-1">
-        <span className="text-blue-400 font-bold">🛡️ Block:</span>
-        <span className="text-blue-300 font-bold text-lg">{block}</span>
+      <div className="flex items-center gap-4 mt-1">
+        <div className="flex items-center gap-2">
+          <span className="text-blue-400 font-bold">🛡️ Block:</span>
+          <span className="text-blue-300 font-bold text-lg">{block}</span>
+        </div>
+        <div className="flex items-center gap-2">
+          <span className="text-yellow-400 font-bold">⚡ Energy:</span>
+          <span className="text-yellow-300 font-bold text-lg">{energy}</span>
+        </div>
       </div>
     </div>
   );
